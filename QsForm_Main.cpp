@@ -157,7 +157,7 @@ void QsForm_Main::clear_tables()
     QStringList list_str;
     for (int i = 0; i < C; ++i) {
 
-        list_str << QString().sprintf("Cl%i", i+1);
+        list_str << QString().asprintf("Cl%i", i+1);
         for (int j = 0; j < ui->tbAuto1->columnCount(); ++j) { ui->tbAuto1->setItem(i,j,new QTableWidgetItem("")); }
     }
     ui->tbAuto1->setVerticalHeaderLabels(list_str);
@@ -166,7 +166,7 @@ void QsForm_Main::clear_tables()
     list_str.clear();
     for (int i = 0; i < S; ++i) {
 
-        list_str << QString().sprintf("Sr%i", i+1);
+        list_str << QString().asprintf("Sr%i", i+1);
         for (int j = 0; j < ui->tbAuto2->columnCount(); ++j) { ui->tbAuto2->setItem(i,j,new QTableWidgetItem("")); }
     }
     ui->tbAuto2->setVerticalHeaderLabels(list_str);
@@ -174,8 +174,8 @@ void QsForm_Main::clear_tables()
 
     ui->tbStepEvCal->setRowCount(C + S);
     list_str.clear();
-    for (int i = 0; i < C; ++i) { list_str << QString().sprintf("Cl%i", i+1); }
-    for (int i = C; i < C+S; ++i) { list_str << QString().sprintf("Sr%i", i+1-C); }
+    for (int i = 0; i < C; ++i) { list_str << QString().asprintf("Cl%i", i+1); }
+    for (int i = C; i < C+S; ++i) { list_str << QString().asprintf("Sr%i", i+1-C); }
     for (int i = 0; i < C+S; ++i) {
         for (int j = 0; j < ui->tbStepEvCal->columnCount(); ++j) { ui->tbStepEvCal->setItem(i,j,new QTableWidgetItem("")); }
     }
@@ -185,7 +185,7 @@ void QsForm_Main::clear_tables()
     list_str.clear();
     for (int i = 0; i < Q; ++i) {
 
-        list_str << QString().sprintf("Qu%i", i+1);
+        list_str << QString().asprintf("Qu%i", i+1);
         for (int j = 0; j < ui->tbStepQue->columnCount(); ++j) { ui->tbStepQue->setItem(i,j,new QTableWidgetItem("")); }
     }
     ui->tbStepQue->setVerticalHeaderLabels(list_str);
@@ -201,28 +201,28 @@ void QsForm_Main::output_res_auto()
         auto& info = QsRes::sumInfoByClient[c];
 
         item = ui->tbAuto1->item(c,0); Q_CHECK_PTR(item);
-        item->setText(QString().sprintf("%i",info.total));
+        item->setText(QString().asprintf("%i",info.total));
 
         item = ui->tbAuto1->item(c,1); Q_CHECK_PTR(item);
-        item->setText(QString().sprintf("%i", info.rejected));
+        item->setText(QString().asprintf("%i", info.rejected));
 
         item = ui->tbAuto1->item(c,2); Q_CHECK_PTR(item);
-        item->setText(QString().sprintf("%.4f", info.p_rej));
+        item->setText(QString().asprintf("%.4f", info.p_rej));
 
         item = ui->tbAuto1->item(c,3); Q_CHECK_PTR(item);
-        item->setText(QString().sprintf("%.4f", info.mean_t_resid));
+        item->setText(QString().asprintf("%.4f", info.mean_t_resid));
 
         item = ui->tbAuto1->item(c,4); Q_CHECK_PTR(item);
-        item->setText(QString().sprintf("%.4f", info.mean_t_wait));
+        item->setText(QString().asprintf("%.4f", info.mean_t_wait));
 
         item = ui->tbAuto1->item(c,5); Q_CHECK_PTR(item);
-        item->setText(QString().sprintf("%.4f", info.mean_t_proc));
+        item->setText(QString().asprintf("%.4f", info.mean_t_proc));
 
         item = ui->tbAuto1->item(c,6); Q_CHECK_PTR(item);
-        item->setText(QString().sprintf("%.4f", info.disp_t_wait));
+        item->setText(QString().asprintf("%.4f", info.disp_t_wait));
 
         item = ui->tbAuto1->item(c,7); Q_CHECK_PTR(item);
-        item->setText(QString().sprintf("%.4f", info.disp_t_proc));
+        item->setText(QString().asprintf("%.4f", info.disp_t_proc));
 
 
     }
@@ -234,7 +234,7 @@ void QsForm_Main::output_res_auto()
 
 
         item = ui->tbAuto2->item(s,0); Q_CHECK_PTR(item);
-        item->setText(QString().sprintf("%.4f", info.k_usage));
+        item->setText(QString().asprintf("%.4f", info.k_usage));
 
     }
 
@@ -254,16 +254,16 @@ void QsForm_Main::output_res_step()
              QTableWidgetItem* item = nullptr;
 
              item = ui->tbStepEvCal->item(c,0); Q_CHECK_PTR(item);
-             item->setText(QString().sprintf("%c", ind_ev));
+             item->setText(QString().asprintf("%c", ind_ev));
 
              item = ui->tbStepEvCal->item(c,1); Q_CHECK_PTR(item);
-             item->setText(QString().sprintf("%.3f", time));
+             item->setText(QString().asprintf("%.3f", time));
 
              item = ui->tbStepEvCal->item(c,2); Q_CHECK_PTR(item);
-             item->setText(QString().sprintf("%i", info.accepted));
+             item->setText(QString().asprintf("%i", info.accepted));
 
              item = ui->tbStepEvCal->item(c,3); Q_CHECK_PTR(item);
-             item->setText(QString().sprintf("%i", info.rejected));
+             item->setText(QString().asprintf("%i", info.rejected));
          }
 
          for (auto& srv : core->serverScope.getScope() ) {
@@ -277,10 +277,10 @@ void QsForm_Main::output_res_step()
              QTableWidgetItem* item = nullptr;
 
              item = ui->tbStepEvCal->item(c + s,0); Q_CHECK_PTR(item);
-             item->setText(QString().sprintf("%c", ind_ev));
+             item->setText(QString().asprintf("%c", ind_ev));
 
              item = ui->tbStepEvCal->item(c + s,1); Q_CHECK_PTR(item);
-             item->setText(QString().sprintf("%.3f", time));
+             item->setText(QString().asprintf("%.3f", time));
 
          }
 
@@ -295,13 +295,13 @@ void QsForm_Main::output_res_step()
             QTableWidgetItem* item = nullptr;
 
             item = ui->tbStepQue->item(q, 0); Q_CHECK_PTR(item);
-            item->setText(QString().sprintf("%.3f", time));
+            item->setText(QString().asprintf("%.3f", time));
 
             item = ui->tbStepQue->item(q, 1); Q_CHECK_PTR(item);
-            item->setText(QString().sprintf("%i", id));
+            item->setText(QString().asprintf("%i", id));
 
             item = ui->tbStepQue->item(q, 2); Q_CHECK_PTR(item);
-            item->setText(QString().sprintf("%i", count));
+            item->setText(QString().asprintf("%i", count));
 
 
         }

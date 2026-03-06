@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>895</width>
-    <height>446</height>
+    <width>1063</width>
+    <height>825</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,8 +47,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>resourses/play.png</normaloff>resourses/play.png</iconset>
+         <iconset theme="QIcon::ThemeIcon::MediaPlaybackStart"/>
         </property>
         <property name="autoDefault">
          <bool>false</bool>
@@ -79,8 +78,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>resourses/next.png</normaloff>resourses/next.png</iconset>
+         <iconset theme="QIcon::ThemeIcon::MediaSkipForward"/>
         </property>
         <property name="autoDefault">
          <bool>false</bool>
@@ -108,8 +106,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>resourses/stop.png</normaloff>resourses/stop.png</iconset>
+         <iconset theme="QIcon::ThemeIcon::MediaPlaybackStop"/>
         </property>
         <property name="autoDefault">
          <bool>false</bool>
@@ -126,7 +123,7 @@
       <item>
        <widget class="Line" name="line">
         <property name="orientation">
-         <enum>Qt::Vertical</enum>
+         <enum>Qt::Orientation::Vertical</enum>
         </property>
        </widget>
       </item>
@@ -140,7 +137,7 @@
       <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -168,8 +165,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>resourses/set.png</normaloff>resourses/set.png</iconset>
+         <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
         </property>
         <property name="autoDefault">
          <bool>false</bool>
@@ -249,7 +245,7 @@
                </sizepolicy>
               </property>
               <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+               <enum>Qt::Orientation::Horizontal</enum>
               </property>
               <widget class="QTableWidget" name="tbAuto1">
                <property name="enabled">
@@ -271,13 +267,13 @@
                 <bool>false</bool>
                </property>
                <property name="layoutDirection">
-                <enum>Qt::LeftToRight</enum>
+                <enum>Qt::LayoutDirection::LeftToRight</enum>
                </property>
                <property name="autoFillBackground">
                 <bool>false</bool>
                </property>
                <property name="editTriggers">
-                <set>QAbstractItemView::NoEditTriggers</set>
+                <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
                </property>
                <property name="showGrid">
                 <bool>true</bool>
@@ -413,7 +409,7 @@
             </sizepolicy>
            </property>
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Orientation::Horizontal</enum>
            </property>
            <widget class="QFrame" name="vframe_step_lb_tb">
             <layout class="QVBoxLayout" name="verticalLayout_3">
